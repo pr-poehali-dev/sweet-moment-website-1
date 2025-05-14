@@ -22,6 +22,42 @@ const Home = () => {
       icon: "Leaf"
     }
   ];
+  
+  const testimonials = [
+    {
+      text: "Самая уютная кофейня в городе! Изумительные десерты и превосходный кофе. Всегда прихожу сюда, чтобы насладиться спокойной атмосферой и вкусным латте.",
+      author: "Мария Иванова",
+      role: "Постоянный гость"
+    },
+    {
+      text: "Бесподобные эклеры и раф с лавандой! Интерьер выполнен со вкусом, а персонал всегда приветлив. Рекомендую это место всем, кто ценит качественный кофе.",
+      author: "Алексей Смирнов",
+      role: "Фуд-блогер"
+    },
+    {
+      text: "Мое любимое место для удаленной работы. Здесь всегда хороший WiFi, вкусный кофе и потрясающие круассаны. Приятно, что бариста помнит мои предпочтения.",
+      author: "Екатерина Петрова",
+      role: "Фрилансер"
+    }
+  ];
+  
+  const stats = [
+    {
+      value: "42,500+",
+      label: "Чашек кофе сварили",
+      icon: "Coffee"
+    },
+    {
+      value: "16,200+",
+      label: "Довольных клиентов",
+      icon: "Heart"
+    },
+    {
+      value: "8,700+",
+      label: "Десертов подали",
+      icon: "Cake"
+    }
+  ];
 
   return (
     <div>
@@ -48,7 +84,8 @@ const Home = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="text-white border-white hover:bg-white hover:text-coffee">
+                  {/* Изменена кнопка на вариант coffee с коричневым текстом */}
+                  <Button variant="coffee">
                     Как нас найти
                   </Button>
                 </Link>
@@ -87,22 +124,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
+      {/* Stats Section - Новая секция со счетчиками */}
+      <section className="py-14 bg-coffee text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center text-center">
+                <div className="mb-3 bg-white/10 rounded-full p-3">
+                  <Icon name={stat.icon} className="h-8 w-8" />
+                </div>
+                <h3 className="text-3xl font-bold mb-2">{stat.value}</h3>
+                <p className="text-cream-light">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - Обновленная с несколькими отзывами */}
       <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="relative mb-8">
-              <div className="absolute -top-8 -left-8 text-6xl text-cream-dark">"</div>
-              <p className="text-xl italic text-coffee-dark relative z-10">
-                Самая уютная кофейня в городе! Изумительные десерты и превосходный кофе. 
-                Всегда прихожу сюда, чтобы насладиться спокойной атмосферой и вкусным латте.
-              </p>
-              <div className="absolute -bottom-8 -right-8 text-6xl text-cream-dark rotate-180">"</div>
-            </div>
-            <div className="mt-6">
-              <p className="font-medium text-coffee">Мария Иванова</p>
-              <p className="text-sm text-coffee-dark">Постоянный гость</p>
-            </div>
+          <h2 className="text-3xl font-bold text-coffee mb-12 text-center">Отзывы наших гостей</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-cream-light p-6 rounded-lg shadow-md">
+                <div className="relative mb-6">
+                  <div className="absolute -top-4 -left-2 text-4xl text-cream-dark opacity-50">"</div>
+                  <p className="italic text-coffee-dark relative z-10 pt-2">
+                    {testimonial.text}
+                  </p>
+                  <div className="absolute -bottom-4 -right-2 text-4xl text-cream-dark opacity-50 rotate-180">"</div>
+                </div>
+                <div className="mt-4">
+                  <p className="font-medium text-coffee">{testimonial.author}</p>
+                  <p className="text-sm text-coffee-dark">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

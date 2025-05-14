@@ -1,13 +1,12 @@
-
 import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -64,14 +63,13 @@ const config = {
           ring: "hsl(var(--sidebar-ring))",
         },
         coffee: {
-          light: "#D2B48C",
           DEFAULT: "#8B5A2B",
-          dark: "#5D4037",
+          dark: "#6B4423",
         },
         cream: {
-          light: "#FFF8E1",
           DEFAULT: "#F5F5DC",
-          dark: "#E8D8C3",
+          dark: "#E8E8C0",
+          light: "#FFFBF0",
         },
       },
       borderRadius: {
